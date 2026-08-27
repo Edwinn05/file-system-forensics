@@ -20,7 +20,6 @@ def launch_as_admin():
     sys.exit(0)
 if __name__ == "__main__":
     if admin_privilege():
-        #INSERT ADMIN-ONLY CODE
         def fetchlogicalpath():
             logicpath = os.getenv("SystemDrive")
             actualpath = f"\\\\.\\{logicpath}"
@@ -38,8 +37,8 @@ if __name__ == "__main__":
                 disk.seek(mft_byte_offset)
                 record0 =disk.read(1024)
             return record0,bytes_per_cluster
+
         _,cluster_size = get_MFT_record0()
-        print(cluster_size)
         MFTzero,_ = get_MFT_record0()
 
         def MFT_INFO(record):
